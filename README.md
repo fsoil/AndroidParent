@@ -4,7 +4,7 @@
 
 > 在新建的工程根目录gradle文件依赖远程配置文件
 
-`apply from: 'http://gitlab.club.lenovo.com.cn/android-platform/parent/raw/master/config/version/versions.gradle' `
+`apply from: 'https://raw.githubusercontent.com/fsoil/AndroidParent/master/config/version/versions.gradle' `
 
 具体参考本项目的根目录build.gradle 文件，也可以直接拷贝，替换新项目的相同文件，其他模块的gradle文件类似操作
 

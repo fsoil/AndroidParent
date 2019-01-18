@@ -1,11 +1,11 @@
 apply plugin: 'maven'
 
-def MAVEN_LOCAL_PATH = 'http://10.99.205.16:8081/nexus/content/repositories/releases'
+def MAVEN_LOCAL_PATH = 'http://100.99.205.106:8081/nexus/content/repositories/releases'
 def ARTIFACT_ID = 'aSoil-web'
 def VERSION_NAME = '1.0.6'
 def GROUP_ID = 'com.play.soil'
-def ACCOUNT = 'zhulei'
-def PASSWORD = 'abc123'
+def ACCOUNT = 'Maven用户名'
+def PASSWORD = '密码'
 
 task androidJavadocs(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs

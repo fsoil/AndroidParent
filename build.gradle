@@ -2,8 +2,8 @@
 
 buildscript {
     //网络地址（行程地址）
-//    apply from: 'http://gitlab.club.lenovo.com.cn/android-platform/config/raw/master/version/versions.gradle'
-    apply from: 'http://gitlab.club.lenovo.com.cn/android-platform/parent/raw/master/config/version/versions.gradle'
+//    apply from: 'http://gitlab.com.cn/android-platform/config/raw/master/version/versions.gradle'
+    apply from: 'https://raw.githubusercontent.com/fsoil/AndroidParent/master/config/version/versions.gradle'
     addRepos(repositories)
 
     dependencies {
