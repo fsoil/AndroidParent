@@ -1,0 +1,46 @@
+apply plugin: 'maven'
+
+def MAVEN_LOCAL_PATH = 'http://10.99.205.16:8081/nexus/content/repositories/releases'
+def ARTIFACT_ID = 'aSoil-web'
+def VERSION_NAME = '1.0.6'
+def GROUP_ID = 'com.play.soil'
+def ACCOUNT = 'zhulei'
+def PASSWORD = 'abc123'
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+}
+
+task androidJavadocsJar(type: Jar) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    //aar包增加源码
+    archives androidSourcesJar
+    //aar包增加注释
+    archives androidJavadocsJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: MAVEN_LOCAL_PATH) {
+                authentication(userName: ACCOUNT, password: PASSWORD)
+            }
+
+            pom.project {
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION_NAME
+                packaging 'aar'
+            }
+        }
+    }
+}
